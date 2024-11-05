@@ -10,7 +10,8 @@
     --gradient-color-4: #AFFDBA;
     --gradient-color-5: #51F2FF;
     --gradient-color-6: #6E93FF;
-    --scale-factor-xl: 2.5;
+    --scale-factor: 2.5;
+    --font-size-header: 4rem;
 }
 
 * {
@@ -21,13 +22,14 @@
 
 body {
     width: 100vw;
-    background: url("./assets/bg-1.png") no-repeat fixed center / cover;
+    background: url("./assets/bg-desktop.png") no-repeat fixed center / cover;
     height: 100vh;
     display: flex;
     flex-direction: column; 
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    margin-bottom: 50px;
 }
 
 .container-timer {
@@ -36,7 +38,7 @@ body {
     align-items: center;
     padding: 5px;
     display: flex;
-    transform: scale(var(--scale-factor-xl)) translateX(0.5%);
+    transform: scale(var(--scale-factor)) translateX(0.5%);
     
 }
 
@@ -86,9 +88,8 @@ small {
     position: absolute;
     text-align: center;
     color: var(--text-color-white);
-    position: absolute;
     top: 20%;
-    font-size: 3rem; 
+    font-size: var(--font-size-header); 
     font-family: var(--font-amiri), sans-serif; 
     font-weight: 400;
     background-image: 
@@ -99,7 +100,9 @@ small {
             var(--gradient-color-3) 74%, 
             var(--gradient-color-4) 100%
         );
+    -webkit-background-clip: text;
     background-clip: text;
+    -webkit-text-fill-color: transparent;
     color: transparent;
 }
 
@@ -124,3 +127,40 @@ small {
     width: 64px;
     height: 64px;
 }
+
+/* Media Queries - Mobile */
+@media (max-width: 768px) {
+    :root {
+        --scale-factor: 0.8;
+        --font-size-header: 2rem;
+    }
+
+    .icons {
+        width: 48px;
+        height: 48px;  
+    }
+
+    .quandary-logo {
+        transform: scale(var(--scale-factor));
+    }
+    
+    .container-timer {
+        position: relative;
+        bottom: 5%;
+    }
+
+    body {
+        background: url("./assets/bg-mobile.png") no-repeat fixed center / cover;
+    }
+}
+
+/* Media Queries - Tablets */
+ @media (min-width: 769px) and (max-width: 1024px) {
+    :root {
+        --scale-factor: 1.5;
+        --font-size-header: 3rem;
+    }
+    body {
+        background: url("./assets/bg-tablet.png") no-repeat fixed center / cover;
+    }
+ }
