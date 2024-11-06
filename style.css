@@ -11,7 +11,7 @@
     --gradient-color-5: #51F2FF;
     --gradient-color-6: #6E93FF;
     --scale-factor: 2.5;
-    --font-size-header: 4rem;
+    --font-size-header: 3rem;
 }
 
 * {
@@ -88,7 +88,7 @@ small {
     position: absolute;
     text-align: center;
     color: var(--text-color-white);
-    top: 20%;
+    top: 17%;
     font-size: var(--font-size-header); 
     font-family: var(--font-amiri), sans-serif; 
     font-weight: 400;
@@ -109,7 +109,7 @@ small {
 .quandary-logo {
     display: flex;
     position: absolute;
-    top: 3%;
+    top: 0.5%;
 }
 
 .container-icons {
@@ -158,7 +158,6 @@ small {
  @media (min-width: 769px) and (max-width: 1024px) {
     :root {
         --scale-factor: 1.5;
-        --font-size-header: 3rem;
     }
     body {
         background: url("./assets/bg-tablet.png") no-repeat fixed center / cover;
