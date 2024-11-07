@@ -1,8 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Readex+Pro:wght@160..700&display=swap');
 
+@font-face {
+    font-family: 'Apple Garamond';
+    src: url('/assets/fonts/AppleGaramond.woff2') format('woff2'),
+         url('/assets/fonts/AppleGaramond.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 :root {
     --text-color-white: #FFFFFF;
-    --font-amiri: "Amiri";
+    --font-apple: "Apple Garamond";
     --font-readex: "Readex Pro";
     --gradient-color-1: #FBBC04;
     --gradient-color-2: #E2AFFD;
@@ -38,8 +46,7 @@ body {
     align-items: center;
     padding: 5px;
     display: flex;
-    transform: scale(var(--scale-factor)) translateX(0.5%);
-    
+    transform: scale(var(--scale-factor));
 }
 
 .container-timer::before {
@@ -80,7 +87,7 @@ body {
 }
 
 small {
-    font-size: 1rem;
+    font-size: 0.5rem;
     font-weight: 300;
 }
 
@@ -90,7 +97,7 @@ small {
     color: var(--text-color-white);
     top: 17%;
     font-size: var(--font-size-header); 
-    font-family: var(--font-amiri), sans-serif; 
+    font-family: var(--font-apple), "Amiri", sans-serif; 
     font-weight: 400;
     background-image: 
         linear-gradient(
