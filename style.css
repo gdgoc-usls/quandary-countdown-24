@@ -1,172 +1,175 @@
-@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Readex+Pro:wght@160..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Readex+Pro:wght@160..700&display=swap");
 
 @font-face {
-    font-family: 'Apple Garamond';
-    src: url('/assets/fonts/AppleGaramond.woff2') format('woff2'),
-         url('/assets/fonts/AppleGaramond.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: "Apple Garamond";
+  src: url("/assets/fonts/AppleGaramond.woff2") format("woff2"),
+    url("/assets/fonts/AppleGaramond.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 :root {
-    --text-color-white: #FFFFFF;
-    --font-apple: "Apple Garamond";
-    --font-readex: "Readex Pro";
-    --gradient-color-1: #FBBC04;
-    --gradient-color-2: #E2AFFD;
-    --gradient-color-3: #AFC1FD;
-    --gradient-color-4: #AFFDBA;
-    --gradient-color-5: #51F2FF;
-    --gradient-color-6: #6E93FF;
-    --scale-factor: 2.5;
-    --font-size-header: 3rem;
+  --text-color-white: #ffffff;
+  --font-apple: "Apple Garamond";
+  --font-readex: "Readex Pro";
+  --gradient-color-1: #fbbc04;
+  --gradient-color-2: #e2affd;
+  --gradient-color-3: #afc1fd;
+  --gradient-color-4: #affdba;
+  --gradient-color-5: #51f2ff;
+  --gradient-color-6: #6e93ff;
+  --scale-factor: 2.5;
+  --font-size-header: 3rem;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    width: 100vw;
-    background: url("./assets/bg-desktop.png") no-repeat fixed center / cover;
-    height: 100vh;
-    display: flex;
-    flex-direction: column; 
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    margin-bottom: 50px;
+  width: 100vw;
+  background: url("./assets/bg-desktop.png") no-repeat fixed center / cover;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin-bottom: 50px;
 }
 
 .container-timer {
-    width: fit-content;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    display: flex;
-    transform: scale(var(--scale-factor));
+  width: 400px; 
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  display: flex;
+  position: relative;
+  transform: scale(var(--scale-factor));
 }
 
 .container-timer::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 1.25em;
-    padding: 2px; /* control the border thickness */
-    background: linear-gradient(to bottom, var(--gradient-color-1) 0%, var(--gradient-color-5) 52%, var(--gradient-color-6) 100%);
-    mask: 
-      linear-gradient(#fff 0 0) content-box, 
-      linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 1.25em;
+  padding: 2px; /* control the border thickness */
+  background: linear-gradient(
+    to bottom,
+    var(--gradient-color-1) 0%,
+    var(--gradient-color-5) 52%,
+    var(--gradient-color-6) 100%
+  );
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
 }
 
 .time {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    margin: 1.25em;
-    transform: translateY(-5px);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin: 1.25em;
+  transform: translateY(-5px);
 }
 
 .time h2 {
-    font-weight: bold;
-    font-size: 3rem;
-    margin: 0 0 -10px;
+  font-weight: bold;
+  font-size: 3rem;
+  margin: 0 0 -10px;
 }
 
-.time > h2, 
+.time > h2,
 .time > small {
-    color: var(--text-color-white);
-    font-family: var(--font-readex), sans-serif;
+  color: var(--text-color-white);
+  font-family: var(--font-readex), sans-serif;
 }
 
 small {
-    font-size: 0.5rem;
-    font-weight: 300;
+  font-size: 0.5rem;
+  font-weight: 300;
 }
 
 .text-header {
-    position: absolute;
-    text-align: center;
-    color: var(--text-color-white);
-    top: 17%;
-    font-size: var(--font-size-header); 
-    font-family: var(--font-apple), "Amiri", sans-serif; 
-    font-weight: 400;
-    background-image: 
-        linear-gradient(
-            to right, 
-            var(--gradient-color-1) 0%, 
-            var(--gradient-color-2) 42%, 
-            var(--gradient-color-3) 74%, 
-            var(--gradient-color-4) 100%
-        );
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
+  position: absolute;
+  text-align: center;
+  color: var(--text-color-white);
+  top: 17%;
+  font-size: var(--font-size-header);
+  font-family: var(--font-apple), "Amiri", sans-serif;
+  font-weight: 400;
+  background-image: linear-gradient(
+    to right,
+    var(--gradient-color-1) 0%,
+    var(--gradient-color-2) 42%,
+    var(--gradient-color-3) 74%,
+    var(--gradient-color-4) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .quandary-logo {
-    display: flex;
-    position: absolute;
-    top: 0.5%;
+  display: flex;
+  position: absolute;
+  top: 0.5%;
 }
 
 .container-icons {
-    display: flex;
-    flex-direction: row;
-    position: absolute;
-    bottom: 10%;
-    gap: 1.25em;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 10%;
+  gap: 1.25em;
+  align-items: center;
+  justify-content: center;
 }
 
 .icons {
-    fill: var(--text-color-white);
-    width: 64px;
-    height: 64px;
+  fill: var(--text-color-white);
+  width: 64px;
+  height: 64px;
 }
 
 /* Media Queries - Mobile */
 @media (max-width: 768px) {
-    :root {
-        --scale-factor: 0.8;
-        --font-size-header: 2rem;
-    }
+  :root {
+    --scale-factor: 0.8;
+    --font-size-header: 2rem;
+  }
 
-    .icons {
-        width: 48px;
-        height: 48px;  
-    }
+  .icons {
+    width: 48px;
+    height: 48px;
+  }
 
-    .quandary-logo {
-        transform: scale(var(--scale-factor));
-    }
-    
-    .container-timer {
-        position: relative;
-        bottom: 5%;
-    }
+  .quandary-logo {
+    transform: scale(var(--scale-factor));
+  }
 
-    body {
-        background: url("./assets/bg-mobile.png") no-repeat fixed center / cover;
-    }
+  .container-timer {
+    position: relative;
+    bottom: 5%;
+  }
+
+  body {
+    background: url("./assets/bg-mobile.png") no-repeat fixed center / cover;
+  }
 }
 
 /* Media Queries - Tablets */
- @media (min-width: 769px) and (max-width: 1024px) {
-    :root {
-        --scale-factor: 1.5;
-    }
-    body {
-        background: url("./assets/bg-tablet.png") no-repeat fixed center / cover;
-    }
- }
+@media (min-width: 769px) and (max-width: 1024px) {
+  :root {
+    --scale-factor: 1.5;
+  }
+  body {
+    background: url("./assets/bg-tablet.png") no-repeat fixed center / cover;
+  }
+}
