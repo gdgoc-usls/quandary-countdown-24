@@ -42,7 +42,7 @@ body {
 
 .container-timer {
   width: 400px;
-  justify-content: space-between;
+  gap: 5px;
   align-items: center;
   padding: 5px;
   display: flex;
@@ -75,12 +75,12 @@ body {
   justify-content: center;
   align-items: center;
   margin: 1.25em;
-  transform: translateY(-5px);
+  transform: translate(-1.5px, -5px); /* Attempt to move time container to align contents */
 }
 
 .time h2 {
   font-weight: bold;
-  font-size: 3rem;
+  font-size: 2.75rem;
   margin: 0 0 -10px;
 }
 

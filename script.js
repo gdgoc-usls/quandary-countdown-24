@@ -2,14 +2,18 @@ const days = document.querySelector(".days");
 const hours = document.querySelector(".hours");
 const mins = document.querySelector(".mins");
 const secs = document.querySelector(".secs");
+const textHeader = document.querySelector(".text-header");
 
-const placeholderDate = new Date("November 18 2024 00:00:00");
+let placeholderDate = new Date("November 18 2024 00:00:00");
 
 const updateTimer = () => {
   const currentTime = new Date();
   const diff = placeholderDate - currentTime;
 
+  // Change the timer to the event days and extend the time
   if (diff <= 0) {
+    textHeader.textContent = "The gates of dreamland are wide open!"; 
+    placeholderDate = new Date("November 23 2024 00:00:00");
     days.innerHTML = "00";
     hours.innerHTML = "00";
     mins.innerHTML = "00";
