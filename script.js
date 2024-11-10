@@ -4,20 +4,31 @@ const mins = document.querySelector(".mins");
 const secs = document.querySelector(".secs");
 const textHeader = document.querySelector(".text-header");
 
-let placeholderDate = new Date("November 18 2024 00:00:00");
+const shrinkTimerFont = "2.5rem";
+let startDate = new Date("November 18 2024 00:00:00");
+let endDate = new Date("November 23 2024 00:00:00");
 
 const updateTimer = () => {
   const currentTime = new Date();
-  const diff = placeholderDate - currentTime;
 
+  // Event has ended, reset everything to 0 and shrink the timer
+  if (currentTime >= endDate) {
+    textHeader.textContent = "Dreamland's gates have gently drifted shut.";
+    days.style.fontSize = shrinkTimerFont;
+    hours.style.fontSize = shrinkTimerFont;
+    mins.style.fontSize = shrinkTimerFont;
+    secs.style.fontSize = shrinkTimerFont;
+    resetTimer();
+    return;
+  }
+
+  const diff = startDate - currentTime;
+  
   // Change the timer to the event days and extend the time
   if (diff <= 0) {
     textHeader.textContent = "The gates of dreamland are wide open!"; 
-    placeholderDate = new Date("November 23 2024 00:00:00");
-    days.innerHTML = "00";
-    hours.innerHTML = "00";
-    mins.innerHTML = "00";
-    secs.innerHTML = "00";
+    startDate = endDate;
+    resetTimer();
     return;
   }
 
@@ -32,6 +43,13 @@ const updateTimer = () => {
   mins.innerHTML = min < 10 ? `0${min}` : min;
   secs.innerHTML = sec < 10 ? `0${sec}` : sec;
 };
+
+const resetTimer = () => {
+  days.innerHTML = "00";
+  hours.innerHTML = "00";
+  mins.innerHTML = "00";
+  secs.innerHTML = "00";
+}
 
 updateTimer();
 
