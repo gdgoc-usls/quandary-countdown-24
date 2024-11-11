@@ -75,7 +75,7 @@ body {
   justify-content: center;
   align-items: center;
   margin: 1.25em;
-  transform: translate(-1.5px, -5px);
+  transform: translate(-1px, -5px);
 }
 
 .time h2 {
@@ -100,6 +100,7 @@ small {
   text-align: center;
   color: var(--text-color-white);
   top: 17%;
+  padding: 0px 10px;
   font-size: var(--font-size-header);
   font-family: var(--font-apple), "Amiri", sans-serif;
   font-weight: 400;
