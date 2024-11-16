@@ -3,6 +3,8 @@ const hours = document.querySelector(".hours");
 const mins = document.querySelector(".mins");
 const secs = document.querySelector(".secs");
 const textHeader = document.querySelector(".text-header");
+const imgSvg = document.querySelector(".quandary-logo");
+const tooltip = document.querySelector(".tooltip-text");
 
 const shrinkTimerFont = "2.5rem";
 let startDate = new Date("November 18 2024 00:00:00");
@@ -27,6 +29,10 @@ const updateTimer = () => {
   // Change the timer to the event days and extend the time
   if (diff <= 0) {
     textHeader.textContent = "The gates of dreamland are wide open!"; 
+    imgSvg.href = "https://quandary-main.vercel.app/";
+    imgSvg.target = "_blank";
+    tooltip.style.visibility = "visible";
+    textHeader.style.top = "20%";
     startDate = endDate;
     resetTimer();
     return;

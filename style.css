@@ -16,8 +16,10 @@
   --gradient-color-2: #e2affd;
   --gradient-color-3: #afc1fd;
   --gradient-color-4: #affdba;
-  --gradient-color-5: #51f2ff;
-  --gradient-color-6: #6e93ff;
+  --invert-blue: rgba(4, 67, 251, 1);
+  --invert-cyan: rgba(0, 235, 255, 1);
+  --invert-pink: rgba(255, 0, 124, 1);
+  --invert-yellow: rgba(255, 164, 13, 1);
   --scale-factor: 2.5;
   --font-size-header: 3rem;
 }
@@ -57,10 +59,12 @@ body {
   border-radius: 1.25em;
   padding: 2px; /* control the border thickness */
   background: linear-gradient(
-    to bottom,
-    var(--gradient-color-1) 0%,
-    var(--gradient-color-5) 52%,
-    var(--gradient-color-6) 100%
+    90deg,
+    var(--invert-blue),
+    var(--invert-cyan),
+    var(--invert-pink),
+    var(--invert-yellow),
+    var(--invert-pink)
   );
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
@@ -118,10 +122,28 @@ small {
 }
 
 .quandary-logo {
+  align-items: center;
   text-decoration: none;
   display: flex;
+  flex-direction: column;
   position: absolute;
   top: 0.5%;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  background: linear-gradient(
+    90deg,
+    var(--invert-blue),
+    var(--invert-cyan),
+    var(--invert-pink),
+    var(--invert-yellow),
+    var(--invert-pink)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .container-icons {
