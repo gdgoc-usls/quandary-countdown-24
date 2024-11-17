@@ -29,11 +29,8 @@ const updateTimer = () => {
   // Change the timer to the event days and extend the time
   if (diff <= 0) {
     textHeader.textContent = "The gates of dreamland are wide open!"; 
-    imgSvg.href = "https://quandary-main.vercel.app/";
-    imgSvg.target = "_blank";
-    tooltip.style.visibility = "visible";
-    textHeader.style.top = "20%";
     startDate = endDate;
+    // showTooltip();
     resetTimer();
     return;
   }
@@ -55,6 +52,13 @@ const resetTimer = () => {
   hours.innerHTML = "00";
   mins.innerHTML = "00";
   secs.innerHTML = "00";
+}
+
+const showTooltip = () => {
+  imgSvg.href = "https://quandary-main.vercel.app/";
+  imgSvg.target = "_blank";
+  tooltip.style.visibility = "visible";
+  textHeader.style.top = "20%";
 }
 
 updateTimer();
