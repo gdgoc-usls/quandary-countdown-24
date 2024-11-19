@@ -30,7 +30,7 @@ const updateTimer = () => {
   if (diff <= 0) {
     textHeader.textContent = "The gates of dreamland are wide open!"; 
     startDate = endDate;
-    // showTooltip();
+    showTooltip();
     resetTimer();
     return;
   }
