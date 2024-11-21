@@ -8,7 +8,7 @@ const tooltip = document.querySelector(".tooltip-text");
 
 const shrinkTimerFont = "2.5rem";
 let startDate = new Date("November 18 2024 00:00:00");
-let endDate = new Date("November 23 2024 00:00:00");
+let endDate = new Date("November 21 2024 17:00:00");
 
 const updateTimer = () => {
   const currentTime = new Date();
@@ -20,6 +20,7 @@ const updateTimer = () => {
     hours.style.fontSize = shrinkTimerFont;
     mins.style.fontSize = shrinkTimerFont;
     secs.style.fontSize = shrinkTimerFont;
+    showTooltip();
     resetTimer();
     return;
   }
