@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+/* Custom Font */
+@font-face {
+    font-family: 'Apple Garamond';
+    src: url('font/AppleGaramond.woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+/* Default styling @ base*/
+@layer base {
+    *, 
+    *::before, 
+    *::after {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+}
