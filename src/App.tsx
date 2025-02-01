@@ -1,8 +1,11 @@
 import Footer from '@components/Footer'
+import QuandaryIcon from '@components/QuandaryIcon'
+
 function App() {
   return (
     <>
-      <p className="text-center bg-red-300 text-2xl">Hello World!</p>
+      <QuandaryIcon />
+      <p className="text-center bg-red-300 text-2xl text-inv-blue font-garamond">Hello World!</p>
       <Footer />
     </>
   )

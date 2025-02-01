@@ -17,4 +17,14 @@
         margin: 0;
         box-sizing: border-box;
     }
+
+    body {
+        width: 100vw;
+        height: 100vh;
+        background: url('@assets/bg-desktop.png') no-repeat fixed center / cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
 }
