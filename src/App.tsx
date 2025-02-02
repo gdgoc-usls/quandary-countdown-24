@@ -1,11 +1,12 @@
-import Footer from '@components/Footer'
-import QuandaryIcon from '@components/QuandaryIcon'
+import { Footer, QuandaryIcon, Timer } from '@components/Component'
 
 function App() {
+  let targetDate = new Date('November 21 2024 17:00:00')
   return (
     <>
       <QuandaryIcon />
-      <p className="text-center bg-red-300 text-2xl text-inv-blue font-garamond">Hello World!</p>
+      <h3 className="text-center text-white text-5xl font-bold">Hello World!</h3>
+      <Timer target={targetDate} />
       <Footer />
     </>
   )
