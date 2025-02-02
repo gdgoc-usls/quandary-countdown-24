@@ -3,9 +3,10 @@ export default {
     content: [
       './index.html', // Adjust the path as needed
       './src/**/*.{js,ts,jsx,tsx}', // Adjust the path based on your file structure
+      // TODO: fix
       '@/styles/globals.css',
     ],
-    // Custom configuration for quandary countdown
+      // TODO: fix
     theme: {
       extend: {
         fontFamily: {

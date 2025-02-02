@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    // Setup aliases for paths
     "baseUrl": "./",
     "paths": {
       "@styles/*": ["src/styles/*"],

@@ -36,7 +36,6 @@ const Timer: React.FC<{ target: Date }> = ({ target }) => {
     }
 
     const [time, setTime] = useState<TimeLeft>(calcTimeLeft())
-    const timerLabel: string[] = ['Days', 'Hours', 'Minutes', 'Seconds']
     
     useEffect(() => {
         const timer = setInterval(() => {
@@ -49,7 +48,10 @@ const Timer: React.FC<{ target: Date }> = ({ target }) => {
     return (
         <div className='w-[400px] flex items-center justify-center p-[5px] scale-[2.5] gap-3'>
             { 
-                Object.keys(time).map((key, index) => <TimeUnit key={index} time={time[key as keyof TimeLeft]} label={timerLabel[index]} />)
+                Object.keys(time).map((key, index) => {                
+                    const label = key.charAt(0).toUpperCase() + key.slice(1) 
+                    return <TimeUnit key={index} time={time[key as keyof TimeLeft]} label={label} />
+                })
             }
         </div>
     )
