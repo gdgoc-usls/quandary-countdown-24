@@ -1,15 +1,32 @@
 @import "tailwindcss";
 
-/* Custom Font */
-@font-face {
-    font-family: 'Apple Garamond';
-    src: url('font/AppleGaramond.woff2');
-    font-weight: 400;
-    font-style: normal;
-}
+/*
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+*/
 
 /* Default styling @ base*/
 @layer base {
+    /* Custom Font */
+    @font-face {
+        font-family: 'Apple Garamond';
+        src: url('@assets/font/AppleGaramond.woff2'); /* Changed */
+        font-weight: 400;
+        font-style: normal;
+    }
+
+    :root {
+        --inv-blue: rgba(4, 67, 251, 1);
+        --inv-cyan: rgba(0, 235, 255, 1);
+        --inv-pink: rgba(255, 0, 124, 1);
+        --inv-yellow: rgba(255, 164, 13, 1);
+        --grad-yellow: #fbbc04;
+        --grad-light-purple: #e2affd;
+        --grad-light-blue: #afc1fd;
+        --grad-light-green: #affdba;
+    }
+
     *, 
     *::before, 
     *::after {

@@ -22,7 +22,8 @@ const TimeUnit: React.FC<TimerSegmentProps> = ({time, label}) => {
     
 }
 
-const Timer: React.FC<{ target: Date }> = ({ target }) => {
+// Chore: add start date, update dates using useContext()
+const Timer: React.FC<{ start: Date, target: Date }> = ({ start, target }) => {
     const calcTimeLeft = () => {
         const diff: number = target.getTime() - new Date().getTime()
         const totalSeconds: number = Math.floor(diff / 1000)
