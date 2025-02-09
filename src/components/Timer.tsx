@@ -22,11 +22,13 @@ const TimeUnit: React.FC<TimerSegmentProps> = ({time, label}) => {
     
 }
 
-// Chore: add start date, update dates using useContext()
-const Timer: React.FC<{ start: Date, target: Date }> = ({ start, target }) => {
+// Chore: add start date, update textcontent using context
+const Timer: React.FC = () => {
+    // start = November 18 2024 00:00:00, end = November 21 2024 17:00:00
+    let startDate = new Date('November 18 2024 00:00:00'), targetDate = new Date('November 21 2024 17:00:00')
     const calcTimeLeft = () => {
-        const diff: number = target.getTime() - new Date().getTime()
-        const totalSeconds: number = Math.floor(diff / 1000)
+        const diff = targetDate.getTime() - new Date().getTime()
+        const totalSeconds = Math.floor(diff / 1000)
         const timeLeft: TimeLeft  = {
             days: (diff > 0) ? Math.floor(totalSeconds / (24 * 3600)) : 0,
             hours: (diff > 0) ? Math.floor(totalSeconds / 3600) % 24 : 0,
@@ -44,14 +46,14 @@ const Timer: React.FC<{ start: Date, target: Date }> = ({ start, target }) => {
         }, 1000)
 
         return () => clearInterval(timer)
-    }, [target])
+    }, [targetDate])
 
     return (
-        <div className='w-[400px] flex items-center justify-center p-[5px] scale-[2.5] gap-3'>
+        <div className='w-[400px] flex items-center justify-center p-[5px] scale-[2.5] gap-3 mx-auto gradient-border'>
             { 
                 Object.keys(time).map((key, index) => {                
                     const label = key.charAt(0).toUpperCase() + key.slice(1) 
-                    return <TimeUnit key={index} time={time[key as keyof TimeLeft]} label={label} />
+                    return <TimeUnit key={ index } time={time[key as keyof TimeLeft]} label={ label } />
                 })
             }
         </div>

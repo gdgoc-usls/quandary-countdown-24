@@ -1,47 +1,23 @@
 @import "tailwindcss";
 
-/*
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-*/
+/* Custom Font */
+@font-face {
+    font-family: "Apple Garamond";
+    src: url("/src/assets/font/AppleGaramond.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
 
-/* Default styling @ base*/
-@layer base {
-    /* Custom Font */
-    @font-face {
-        font-family: 'Apple Garamond';
-        src: url('@assets/font/AppleGaramond.woff2'); /* Changed */
-        font-weight: 400;
-        font-style: normal;
-    }
+@theme {
+    --font-garamond: "Apple Garamond";
+    --color-inv-blue: rgba(4, 67, 251, 1);
+    --color-inv-cyan: rgba(0, 235, 255, 1);
+    --color-inv-pink: rgba(255, 0, 124, 1);
+    --color-inv-yellow: rgba(255, 164, 13, 1);
+    --color-grad-yellow: #fbbc04;
+    --color-grad-light-purple: #e2affd;
+    --color-grad-light-blue: #afc1fd;
+    --color-grad-light-green: #affdba;
 
-    :root {
-        --inv-blue: rgba(4, 67, 251, 1);
-        --inv-cyan: rgba(0, 235, 255, 1);
-        --inv-pink: rgba(255, 0, 124, 1);
-        --inv-yellow: rgba(255, 164, 13, 1);
-        --grad-yellow: #fbbc04;
-        --grad-light-purple: #e2affd;
-        --grad-light-blue: #afc1fd;
-        --grad-light-green: #affdba;
-    }
-
-    *, 
-    *::before, 
-    *::after {
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-    }
-
-    body {
-        width: 100vw;
-        height: 100vh;
-        background: url('@assets/bg-desktop.png') no-repeat fixed center / cover;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-    }
+    --drop-shadow-links: 0 1px 1px rgba(255,255,255,0.8);
 }
