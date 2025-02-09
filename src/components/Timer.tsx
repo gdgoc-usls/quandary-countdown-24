@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import { HeaderContext } from './HeaderContext'
 
 interface TimerSegmentProps {
     time: number;
@@ -6,10 +7,10 @@ interface TimerSegmentProps {
 }
 
 type TimeLeft = {
-    days: number | 0;
-    hours: number | 0;
-    minutes: number | 0;
-    seconds: number | 0;
+    days: number;
+    hours: number;
+    minutes: number;
+    seconds: number;
 }
 
 const TimeUnit: React.FC<TimerSegmentProps> = ({time, label}) => {
@@ -24,36 +25,54 @@ const TimeUnit: React.FC<TimerSegmentProps> = ({time, label}) => {
 
 // Chore: add start date, update textcontent using context
 const Timer: React.FC = () => {
-    // start = November 18 2024 00:00:00, end = November 21 2024 17:00:00
-    let startDate = new Date('November 18 2024 00:00:00'), targetDate = new Date('November 21 2024 17:00:00')
-    const calcTimeLeft = () => {
-        const diff = targetDate.getTime() - new Date().getTime()
+    const { setHeader } = useContext(HeaderContext)
+    // start = November 18 2024 00:00:00, end = November 21 2024 17:00:00 // let start = new Date('November 18 2024 00:00:00'), end = new Date('November 21 2024 17:00:00');
+    // Track the time left before, during, and after event
+    let start = new Date('February 14 2025 00:00:00'), end = new Date('February 15 2025 17:00:00')
+
+    const calcTimeLeft = (): TimeLeft => {
+        const now = new Date();
+        let target = start
+        // Shift target to end if event has started
+        if(now >= start) target = end
+
+        let diff = target.getTime() - now.getTime()
+        // Event is over
+        if(now >= end) return { days: 0, hours: 0, minutes: 0, seconds: 0 }
+
         const totalSeconds = Math.floor(diff / 1000)
-        const timeLeft: TimeLeft  = {
-            days: (diff > 0) ? Math.floor(totalSeconds / (24 * 3600)) : 0,
-            hours: (diff > 0) ? Math.floor(totalSeconds / 3600) % 24 : 0,
-            minutes: (diff > 0) ? Math.floor(totalSeconds / 60) % 60 : 0,
-            seconds: (diff > 0) ? totalSeconds % 60 : 0
+        return {
+            days: Math.floor(totalSeconds / (24 * 3600)),
+            hours: Math.floor(totalSeconds / 3600) % 24,
+            minutes: Math.floor(totalSeconds / 60) % 60,
+            seconds: totalSeconds % 60
         }
-        return timeLeft;
     }
 
     const [time, setTime] = useState<TimeLeft>(calcTimeLeft())
     
+    // Update time every second
     useEffect(() => {
         const timer = setInterval(() => {
             setTime(calcTimeLeft())
         }, 1000)
 
         return () => clearInterval(timer)
-    }, [targetDate])
+    }, [start])
+
+    // Update header text according to event status/time left
+    useEffect(() => {
+        Object.values(time).every(timeUnit => timeUnit === 0) ? 
+            setHeader("Dreamland's gates have gently drifted shut.") :
+            setHeader("The gates of dreamland are wide open!")
+    }, [time])
 
     return (
         <div className='w-[400px] flex items-center justify-center p-[5px] scale-[2.5] gap-3 mx-auto gradient-border'>
             { 
                 Object.keys(time).map((key, index) => {                
                     const label = key.charAt(0).toUpperCase() + key.slice(1) 
-                    return <TimeUnit key={ index } time={time[key as keyof TimeLeft]} label={ label } />
+                    return <TimeUnit key={ index } time={ time[key as keyof TimeLeft] } label={ label } />
                 })
             }
         </div>
