@@ -25,10 +25,10 @@ const TimeUnit: React.FC<TimerSegmentProps> = ({time, label}) => {
 
 // Chore: add start date, update textcontent using context
 const Timer: React.FC = () => {
-    const { setHeader } = useContext(HeaderContext)
+    const { setEventHeader } = useContext(HeaderContext)
     // start = November 18 2024 00:00:00, end = November 21 2024 17:00:00 // let start = new Date('November 18 2024 00:00:00'), end = new Date('November 21 2024 17:00:00');
     // Track the time left before, during, and after event
-    let start = new Date('February 14 2025 00:00:00'), end = new Date('February 15 2025 17:00:00')
+    let start = new Date('February 14 2025 00:00:00'), end = new Date('February 20 2025 17:00:00')
 
     const calcTimeLeft = (): TimeLeft => {
         const now = new Date();
@@ -63,8 +63,8 @@ const Timer: React.FC = () => {
     // Update header text according to event status/time left
     useEffect(() => {
         Object.values(time).every(timeUnit => timeUnit === 0) ? 
-            setHeader("Dreamland's gates have gently drifted shut.") :
-            setHeader("The gates of dreamland are wide open!")
+            setEventHeader("Dreamland's gates have gently drifted shut.") :
+            setEventHeader("The gates of dreamland are wide open!")
     }, [time])
 
     return (
