@@ -21,3 +21,18 @@
 
     --drop-shadow-links: 0 1px 1px rgba(255,255,255,0.8);
 }
+
+// Chore
+.masked-text {
+    /* text-transparent */
+    background-image: linear-gradient(
+        to right,
+        var(grad-yellow) 0%,
+        var(--gradient-color-2) 42%,
+        var(--gradient-color-3) 74%,
+        var(--gradient-color-4) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

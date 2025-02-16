@@ -4,13 +4,14 @@ import { useContext } from 'react'
 
 const Main: React.FC = () => {
   const { eventHeader } = useContext<ContextProps>(HeaderContext)
-  console.log(eventHeader)
-  return <>
-    <QuandaryIcon />
-    <h3 className="text-center text-5xl font-bold font-garamond">{ eventHeader }</h3>
-    <Timer />
-    <Footer />
-  </>
+  return (
+    <>
+      <QuandaryIcon />
+      <h3 className="text-center text-5xl font-semibold text-white font-garamond masked-text">{ eventHeader }</h3>
+      <Timer />
+      <Footer />
+    </>
+  )
 }
 
 function App() {

@@ -10,10 +10,9 @@ export const HeaderContext = createContext<ContextProps>({
     setEventHeader: () => {}
 })
 
-//TODO: fix
+
 export const HeaderProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [eventHeader, setEventHeader] = useState<string>("See you in dreamland.")
-    console.log(eventHeader)
     return <HeaderContext.Provider value={{ eventHeader, setEventHeader }}>
         { children }
     </HeaderContext.Provider>
