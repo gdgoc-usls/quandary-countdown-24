@@ -16,8 +16,8 @@ type TimeLeft = {
 const TimeUnit: React.FC<TimerSegmentProps> = ({time, label}) => {
     return (
         <div className="flex flex-col text-center justify-center items-center m-1">
-            <h2 className="font-bold text-white text-4xl">{ time < 10 ? `0${time}` : time }</h2>
-            <small className='text-xs text-white'>{ label }</small>
+            <h2 className="font-bold text-white text-6xl">{ time < 10 ? `0${time}` : time }</h2>
+            <small className='text-sm text-white'>{ label }</small>
         </div>
     )
     

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Custom Font */
+/* Custom font for header text*/
 @font-face {
     font-family: "Apple Garamond";
     src: url("/src/assets/font/AppleGaramond.woff2") format("woff2");
@@ -19,18 +19,17 @@
     --color-grad-light-blue: #afc1fd;
     --color-grad-light-green: #affdba;
 
-    --drop-shadow-links: 0 1px 1px rgba(255,255,255,0.8);
+    --drop-shadow-links: 0 0.5px 0.5px rgba(255,255,255,0.8);
 }
 
-// Chore
+/* Custom gradient styling for header text */
 .masked-text {
-    /* text-transparent */
     background-image: linear-gradient(
-        to right,
-        var(grad-yellow) 0%,
-        var(--gradient-color-2) 42%,
-        var(--gradient-color-3) 74%,
-        var(--gradient-color-4) 100%
+        88deg,
+        var(--color-grad-yellow) 0%,
+        var(--color-grad-light-purple) 34%,
+        var(--color-grad-light-blue) 69%,
+        var(--color-grad-light-green) 100%
     );
     -webkit-background-clip: text;
     background-clip: text;

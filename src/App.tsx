@@ -7,7 +7,7 @@ const Main: React.FC = () => {
   return (
     <>
       <QuandaryIcon />
-      <h3 className="text-center text-5xl font-semibold text-white font-garamond masked-text">{ eventHeader }</h3>
+      <h3 className="absolute h-[55px] top-[20%] left-1/2 -translate-x-1/2 text-center text-5xl text-transparent font-garamond masked-text">{ eventHeader }</h3>
       <Timer />
       <Footer />
     </>
