@@ -16,25 +16,29 @@ type TimeLeft = {
 const TimeUnit: React.FC<TimerSegmentProps> = ({time, label}) => {
     return (
         <div className="flex flex-col text-center justify-center items-center m-1">
-            <h2 className="font-bold text-white text-6xl">{ time < 10 ? `0${time}` : time }</h2>
-            <small className='text-sm text-white'>{ label }</small>
+            <h2 className="font-bold text-white text-5xl">{ time < 10 ? `0${time}` : time }</h2>
+            <small className='text-xs text-white'>{ label }</small>
         </div>
     )
     
 }
 
-// Chore: add start date, update textcontent using context
+const getNewDate = () => new Date()
+
 const Timer: React.FC = () => {
-    const { setEventHeader } = useContext(HeaderContext)
-    // start = November 18 2024 00:00:00, end = November 21 2024 17:00:00 // let start = new Date('November 18 2024 00:00:00'), end = new Date('November 21 2024 17:00:00');
+    const { setEventHeader, setIsVisible } = useContext(HeaderContext)
+    // start = November 18 2024 00:00:00, end = November 21 2024 17:00:00
     // Track the time left before, during, and after event
-    let start = new Date('February 14 2025 00:00:00'), end = new Date('February 20 2025 17:00:00')
+    let start = new Date('November 18 2024 00:00:00'), end = new Date('November 21 2024 17:00:00')
 
     const calcTimeLeft = (): TimeLeft => {
-        const now = new Date();
+        const now = getNewDate();
         let target = start
         // Shift target to end if event has started
-        if(now >= start) target = end
+        if(now >= start) {
+            target = end
+            setIsVisible(true)
+        }
 
         let diff = target.getTime() - now.getTime()
         // Event is over
@@ -62,13 +66,15 @@ const Timer: React.FC = () => {
 
     // Update header text according to event status/time left
     useEffect(() => {
-        Object.values(time).every(timeUnit => timeUnit === 0) ? 
-            setEventHeader("Dreamland's gates have gently drifted shut.") :
-            setEventHeader("The gates of dreamland are wide open!")
+        if(getNewDate() >= start) {
+            Object.values(time).every(timeUnit => timeUnit === 0) ? 
+                setEventHeader("Dreamland's gates have gently drifted shut.") :
+                setEventHeader("The gates of dreamland are wide open!")
+        }
     }, [time])
 
     return (
-        <div className='w-[400px] flex items-center justify-center p-[5px] scale-[2.5] gap-3 mx-auto gradient-border'>
+        <div className='w-[400px] flex items-center justify-between p-5 scale-[2.5] gap-3 mx-auto gradient-border'>
             { 
                 Object.keys(time).map((key, index) => {                
                     const label = key.charAt(0).toUpperCase() + key.slice(1) 
