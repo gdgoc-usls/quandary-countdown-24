@@ -74,7 +74,7 @@ const Timer: React.FC = () => {
     }, [time])
 
     return (
-        <div className='w-[400px] flex items-center justify-between p-5 scale-[2.5] gap-3 mx-auto gradient-border'>
+        <div className='w-[400px] xs:scale-80 flex items-center justify-between p-5 md:scale-200 gap-3 gradient-border'>
             { 
                 Object.keys(time).map((key, index) => {                
                     const label = key.charAt(0).toUpperCase() + key.slice(1) 
