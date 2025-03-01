@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+/* Custom font for header text*/
+@font-face {
+    font-family: "Apple Garamond";
+    src: url("/src/assets/font/AppleGaramond.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@theme {
+    /* BREAKPOINTS */
+    --breakpoint-xs: 20rem;
+    /* FONTS */
+    --font-garamond: "Apple Garamond";
+    /* COLORS */
+    --color-inv-blue: rgba(4, 67, 251, 1);
+    --color-inv-cyan: rgba(0, 235, 255, 1);
+    --color-inv-pink: rgba(255, 0, 124, 1);
+    --color-inv-yellow: rgba(255, 164, 13, 1);
+    --color-grad-yellow: #FBBC04;
+    --color-grad-light-purple: #E2AFFD;
+    --color-grad-light-blue: #AFC1FD;
+    --color-grad-light-green: #AFFDBA;
+    --color-grad-light-cyan: #51F2FF;
+    --color-grad-lught-blue: #6E93FF;
+    /* DROP SHADOWS */
+    --drop-shadow-links: 0 0.5px 0.5px rgba(255,255,255,0.8);
+}
+
+/* Custom gradient styling for header text */
+.masked-text {
+    background-image: linear-gradient(
+        88deg,
+        var(--color-grad-yellow) 0%,
+        var(--color-grad-light-purple) 34%,
+        var(--color-grad-light-blue) 69%,
+        var(--color-grad-light-green) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.gradient-border::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 1.25em;
+    padding: 1.5px;
+    background: linear-gradient(
+        180deg,
+        var(--color-grad-yellow) 0%,
+        var(--color-grad-light-cyan) 52%,
+        var(--color-grad-light-blue) 100%
+    );
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }

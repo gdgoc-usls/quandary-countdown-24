@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    // Setup aliases for paths
+    "baseUrl": "./",
+    "paths": {
+      "@styles/*": ["src/styles/*"],
+      "@components/*": ["src/components/*"],
+      "@assets/*": ["src/assets/*"]
+    }
+  },
+  "include": ["src"],
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}
