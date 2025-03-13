@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     // Setup aliases for paths
+    "jsx": "preserve",
     "baseUrl": "./",
     "paths": {
       "@styles/*": ["src/styles/*"],
